@@ -1,4 +1,4 @@
-package com.example.lesserafim_lyrics
+package com.etndevel.lesserafim_lyrics
 
 import io.flutter.embedding.android.FlutterActivity
 
