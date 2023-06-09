@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 class Home extends StatelessWidget {
   final String title;
@@ -15,7 +16,23 @@ class Home extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: const Center(),
+      body: FutureBuilder(
+        future: DefaultAssetBundle.of(context).loadString('assets/albums.json'),
+        builder: (context, snapshot) {
+          var lyrics = json.decode(snapshot.data.toString());
+
+          return ListView.builder(
+            itemCount: lyrics == null ? 0 : lyrics.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(
+                  lyrics[index]["title"],
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
