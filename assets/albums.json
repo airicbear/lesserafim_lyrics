@@ -2,19 +2,39 @@
     {
         "title": "FEARLESS",
         "releaseDate": "2022-05-02",
-        "lyricsFolderPath": "",
-        "lyricsPaths": []
+        "lyricsFolderPath": "assets/lyrics/fearless",
+        "lyricsPaths": [
+            "the_world_is_my_oyster.json",
+            "fearless.json",
+            "blue_flame.json",
+            "the_great_mermaid.json",
+            "sour_grapes.json"
+        ]
     },
     {
         "title": "ANTIFRAGILE",
         "releaseDate": "2022-10-17",
-        "lyricsFolderPath": "",
-        "lyricsPaths": []
+        "lyricsFolderPath": "assets/lyrics/antifragile",
+        "lyricsPaths": [
+            "the_hydra.json",
+            "antifragile.json",
+            "impurities.json",
+            "no_celestial.json",
+            "good_parts_when_the_quality_is_bad_but_i_am.json"
+        ]
     },
     {
         "title": "UNFORGIVEN",
         "releaseDate": "2023-05-01",
-        "lyricsFolderPath": "",
-        "lyricsPaths": []
+        "lyricsFolderPath": "assets/lyrics/unforgiven",
+        "lyricsPaths": [
+            "burn_the_bridge.json",
+            "unforgiven_feat_nile_rodgers.json",
+            "no_return_into_the_unknown.json",
+            "eve_psyche_and_the_bluebeards_wife.json",
+            "fearnot_between_you_me_and_the_lamppost.json",
+            "flash_forward.json",
+            "fire_in_the_belly.json"
+        ]
     }
 ]

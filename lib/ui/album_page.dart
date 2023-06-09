@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:lesserafim_lyrics/model/album.dart';
+import 'package:lesserafim_lyrics/model/song.dart';
 
 class AlbumPage extends StatelessWidget {
   final Album album;
@@ -15,6 +18,29 @@ class AlbumPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(album.title),
       ),
+      body: ListView.custom(
+        childrenDelegate: SliverChildBuilderDelegate(
+          childCount: album.lyricsPaths.length,
+          (context, index) => FutureBuilder(
+            future: DefaultAssetBundle.of(context).loadString(_songPath(index)),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return const ListTile();
+              }
+
+              final song = Song.fromJson(jsonDecode(snapshot.data.toString()));
+
+              return ListTile(
+                title: Text(song.title),
+              );
+            },
+          ),
+        ),
+      ),
     );
+  }
+
+  String _songPath(int index) {
+    return '${album.lyricsFolderPath}/${album.lyricsPaths[index]}';
   }
 }
