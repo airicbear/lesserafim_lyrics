@@ -1,11 +1,20 @@
 [
     {
-        "title": "FEARLESS"
+        "title": "FEARLESS",
+        "releaseDate": "2022-05-02",
+        "lyricsFolderPath": "",
+        "lyricsPaths": []
     },
     {
-        "title": "ANTIFRAGILE"
+        "title": "ANTIFRAGILE",
+        "releaseDate": "2022-10-17",
+        "lyricsFolderPath": "",
+        "lyricsPaths": []
     },
     {
-        "title": "UNFORGIVEN"
+        "title": "UNFORGIVEN",
+        "releaseDate": "2023-05-01",
+        "lyricsFolderPath": "",
+        "lyricsPaths": []
     }
 ]
