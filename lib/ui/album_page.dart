@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lesserafim_lyrics/model/album.dart';
 
 class AlbumPage extends StatelessWidget {
-  final String title;
+  final Album album;
 
   const AlbumPage({
     super.key,
-    required this.title,
+    required this.album,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(album.title),
       ),
     );
   }

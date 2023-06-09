@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesserafim_lyrics/model/album.dart';
 import 'dart:convert';
 
 import 'package:lesserafim_lyrics/ui/album_page.dart';
@@ -21,11 +22,13 @@ class Home extends StatelessWidget {
       body: FutureBuilder(
         future: DefaultAssetBundle.of(context).loadString('assets/albums.json'),
         builder: (context, snapshot) {
-          var lyrics = json.decode(snapshot.data.toString());
+          final lyrics = json.decode(snapshot.data.toString());
 
           return ListView.builder(
             itemCount: lyrics == null ? 0 : lyrics.length,
             itemBuilder: (context, index) {
+              final album = Album.fromJson(lyrics[index]);
+
               return Card(
                 clipBehavior: Clip.hardEdge,
                 child: InkWell(
@@ -34,15 +37,13 @@ class Home extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => AlbumPage(
-                          title: lyrics[index]["title"],
+                          album: album,
                         ),
                       ),
                     );
                   },
                   child: ListTile(
-                    title: Text(
-                      lyrics[index]["title"],
-                    ),
+                    title: Text(album.title),
                   ),
                 ),
               );
