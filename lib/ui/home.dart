@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
+import 'package:lesserafim_lyrics/ui/album_page.dart';
+
 class Home extends StatelessWidget {
   final String title;
 
@@ -24,9 +26,24 @@ class Home extends StatelessWidget {
           return ListView.builder(
             itemCount: lyrics == null ? 0 : lyrics.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(
-                  lyrics[index]["title"],
+              return Card(
+                clipBehavior: Clip.hardEdge,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AlbumPage(
+                          title: lyrics[index]["title"],
+                        ),
+                      ),
+                    );
+                  },
+                  child: ListTile(
+                    title: Text(
+                      lyrics[index]["title"],
+                    ),
+                  ),
                 ),
               );
             },
