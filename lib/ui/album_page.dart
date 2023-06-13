@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:lesserafim_lyrics/model/album.dart';
 import 'package:lesserafim_lyrics/model/song.dart';
+import 'package:lesserafim_lyrics/ui/lyrics_page.dart';
 
 class AlbumPage extends StatelessWidget {
   final Album album;
@@ -32,6 +33,16 @@ class AlbumPage extends StatelessWidget {
 
               return ListTile(
                 title: Text(song.title),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LyricsPage(
+                        song: song,
+                      ),
+                    ),
+                  );
+                },
               );
             },
           ),
