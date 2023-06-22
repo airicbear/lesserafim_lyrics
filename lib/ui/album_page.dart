@@ -32,16 +32,25 @@ class AlbumPage extends StatelessWidget {
               final song = Song.fromJson(jsonDecode(snapshot.data.toString()));
 
               return ListTile(
-                title: Text(song.title),
+                title: Text(
+                  song.title,
+                  style: TextStyle(
+                    color: song.lyrics.isEmpty
+                        ? Theme.of(context).disabledColor
+                        : Theme.of(context).textTheme.bodyLarge?.color,
+                  ),
+                ),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LyricsPage(
-                        song: song,
+                  if (song.lyrics.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LyricsPage(
+                          song: song,
+                        ),
                       ),
-                    ),
-                  );
+                    );
+                  }
                 },
               );
             },
