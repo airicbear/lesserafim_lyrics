@@ -38,6 +38,7 @@ class AlbumPage extends StatelessWidget {
                     color: song.lyrics.isEmpty
                         ? Theme.of(context).disabledColor
                         : Theme.of(context).textTheme.bodyLarge?.color,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 onTap: () {

@@ -16,8 +16,13 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
+        centerTitle: true,
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: FutureBuilder(
         future: DefaultAssetBundle.of(context).loadString('assets/albums.json'),
@@ -29,21 +34,23 @@ class Home extends StatelessWidget {
             itemBuilder: (context, index) {
               final album = Album.fromJson(lyrics[index]);
 
-              return Card(
-                clipBehavior: Clip.hardEdge,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AlbumPage(
-                          album: album,
-                        ),
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AlbumPage(
+                        album: album,
                       ),
-                    );
-                  },
-                  child: ListTile(
-                    title: Text(album.title),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Text(
+                    album.title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               );
